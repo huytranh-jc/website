@@ -1,54 +1,207 @@
-﻿<!DOCTYPE html> 
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Site</title>
+  <title>JoyCraft Games - Playful & Bold</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      color: #fff;
+      overflow-x: hidden;
     }
+
     .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      padding: 30px 0;
       text-align: center;
-      padding: 2rem;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: float 3s ease-in-out infinite;
     }
-    p {
-      font-size: 1.2rem;
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
       opacity: 0.9;
     }
-    .status {
-      margin-top: 2rem;
-      padding: 1rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 8px;
+
+    .cta-button {
+      display: inline-block;
+      padding: 20px 50px;
+      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .game-preview {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 80px 40px;
+      margin: 80px 0;
+    }
+
+    .game-preview h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .game-card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 60px;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .game-placeholder {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+      border-radius: 20px;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .about {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .about h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+
+    .about p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .newsletter {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 80px 40px;
+      border-radius: 30px;
+      text-align: center;
+      margin: 80px 0;
+    }
+
+    .newsletter h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .game-placeholder { width: 200px; height: 200px; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>🚀 Website is Live!</h1>
-  <p>GitHub Pages + Custom Domain working</p>
-  <div class="status">
-    <p id="time"></p>
-  </div>
+  <header>
+    <div class="logo">JoyCraft Games</div>
+  </header>
+
+  <section class="hero">
+    <h1>Crafting Joy, One Game at a Time</h1>
+    <p>A fresh mobile game studio on a mission to create unforgettable experiences</p>
+    <a href="#newsletter" class="cta-button">Join the Journey 🚀</a>
+  </section>
+
+  <section class="game-preview">
+    <h2>🎯 Our First Game</h2>
+    <div class="game-card">
+      <div class="game-placeholder">🎲</div>
+      <h3 style="font-size: 2rem; margin-bottom: 15px;">Coming Soon</h3>
+      <p style="font-size: 1.2rem;">Something amazing is brewing in our studio. Stay tuned for the big reveal!</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About JoyCraft</h2>
+    <p>We're a passionate team of game creators who believe mobile gaming should be fun, engaging, and accessible to everyone. Our journey just started, and we're working hard on our debut title that will bring joy to players worldwide.</p>
+  </section>
+
+  <section class="newsletter" id="newsletter">
+    <h2>✨ Stay Connected</h2>
+    <p>We'd love to hear from you</p>
+    <div style="margin-top: 60px;">
+      <a href="mailto:business@joycraftgames.net" style="display: inline-flex; align-items: center; gap: 15px; padding: 25px 70px; background: white; color: #764ba2; text-decoration: none; border-radius: 50px; font-size: 1.4rem; font-weight: bold; box-shadow: 0 15px 50px rgba(0,0,0,0.4); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 50px rgba(0,0,0,0.4)'">
+        <span style="font-size: 2rem;">💌</span>
+        <span>business@joycraftgames.net</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 JoyCraft Games. Made with ❤️ and lots of coffee.</p>
+  </footer>
 </div>
-<script>
-  document.getElementById('time').textContent = new Date().toLocaleString();
-</script>
 </body>
 </html>
