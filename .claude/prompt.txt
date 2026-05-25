@@ -1,0 +1,25 @@
+spawn các expert thiết kế website và đọc các screenshots ở các website đã có sẵn ở "C:\Users\huytr\Downloads\Website SS"
+"C:\Users\huytr\OneDrive\Desktop\Homa\JoyCraft - Portfolio.html" là bản demo website của joycraft mà tôi muốn hướng đến (về mặt thông tin) 
+
+
+tôi muốn viết lại website hiện tại như sau
+- tổng thể có 3 tab
+- joycraftgames.net -> index.html
+- joycraftgames.net/#about 
+- joycraftgames.net/careers 
+- từ tab careers sẽ có list các jobs
+- click vào job sẽ có: Job Description, message gửi CV đến hiring@joycraftgames.net (không cần phần Apply for the job, không cần submit CV tại website)
+
+hãy spawn 3 agents thiết kế website theo 3 hướng khác nhau cho game studio chuyên làm mobile game. mỗi website sẽ cần có 2 modes dark/light.
+tự tổ chức lại các file trong project này để quản lí 3 hướng. 
+chỉ cần phần tổng thể, chưa cần chi tiết. 
+
+
+
+
+- main site: index.html -> cần viết lại, thêm 1 số thứ. giữ thông tin game đã xuất bản Ring Slide, viết thêm đang working on 2nd title
+- about: thông tin giống "C:\Users\huytr\OneDrive\Desktop\Homa\JoyCraft - Portfolio.html" nhưng có thể thiết kế khác 
+
+
+
+tối ưu 

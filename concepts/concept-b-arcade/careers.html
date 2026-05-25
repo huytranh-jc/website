@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — JoyCraft Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS TOKENS — identical palette to index.html
+   ============================================================ */
+:root {
+  --coral:   #ff6b6b;
+  --yellow:  #feca57;
+  --sky:     #48dbfb;
+  --pink:    #ff9ff3;
+  --mint:    #1dd1a1;
+
+  --bg:          #fff9f0;
+  --bg-card:     #ffffff;
+  --bg-nav:      rgba(255,249,240,0.85);
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --text-muted:  #8888aa;
+  --border:      rgba(26,26,46,0.08);
+  --shadow:      0 4px 24px rgba(26,26,46,0.10);
+  --shadow-hover: 0 12px 40px rgba(26,26,46,0.16);
+
+  --grad-hero:   linear-gradient(135deg, #fff0f3 0%, #fff8e7 40%, #e8f8ff 100%);
+  --grad-accent: linear-gradient(135deg, var(--coral), var(--yellow), var(--sky), var(--pink));
+  --grad-text:   linear-gradient(90deg, var(--coral), var(--yellow) 50%, var(--sky));
+
+  --radius-card: 24px;
+  --radius-pill: 999px;
+  --transition: 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  --transition-fast: 0.18s ease;
+}
+
+[data-theme="dark"] {
+  --bg:          #0d0d1a;
+  --bg-card:     #161629;
+  --bg-nav:      rgba(13,13,26,0.88);
+  --text-primary: #f0f0ff;
+  --text-secondary: #b0b0d0;
+  --text-muted:  #6666aa;
+  --border:      rgba(255,255,255,0.08);
+  --shadow:      0 4px 24px rgba(0,0,0,0.5);
+  --shadow-hover: 0 12px 40px rgba(0,0,0,0.7);
+  --grad-hero:   linear-gradient(135deg, #0d0d1a 0%, #12122a 50%, #0a1628 100%);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5 { font-family: 'Fredoka', sans-serif; letter-spacing: -0.01em; }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+/* ============================================================
+   NAV (identical to index.html)
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--bg-nav);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.nav-logo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% 300%;
+  animation: gradShift 4s ease infinite;
+}
+
+@keyframes gradShift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: linear-gradient(135deg, rgba(255,107,107,0.12), rgba(72,219,251,0.12));
+  color: var(--text-primary);
+}
+
+.nav-links a:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+.theme-btn {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform var(--transition), border-color var(--transition-fast);
+  color: var(--text-primary);
+}
+.theme-btn:hover { transform: scale(1.15) rotate(20deg); border-color: var(--coral); }
+.theme-btn:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: 0.3s ease; }
+
+/* ============================================================
+   PAGE HERO
+   ============================================================ */
+.careers-hero {
+  padding: 140px 0 80px;
+  background: var(--grad-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.careers-hero::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--coral), transparent 70%);
+  top: -200px; right: -100px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.careers-hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, var(--sky), transparent 70%);
+  bottom: -150px; left: -100px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.careers-hero-inner { position: relative; z-index: 1; }
+
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, rgba(72,219,251,0.15), rgba(255,159,243,0.15));
+  border: 1.5px solid rgba(72,219,251,0.3);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--sky);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.careers-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.careers-hero p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   JOBS SECTION
+   ============================================================ */
+.jobs-section {
+  padding: 80px 0 100px;
+}
+
+.jobs-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  background: rgba(255,107,107,0.10);
+  border-radius: var(--radius-pill);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--coral);
+  margin-bottom: 32px;
+}
+
+/* Job list — each item is a card row; expanded state toggles detail panel */
+.job-list { display: flex; flex-direction: column; gap: 14px; }
+
+.job-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast);
+}
+.job-item:hover { box-shadow: var(--shadow-hover); }
+.job-item.open { border-color: rgba(255,107,107,0.35); }
+
+/* clickable row header */
+.job-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+.job-row:hover { background: rgba(255,107,107,0.04); }
+.job-item.open .job-row { background: rgba(255,107,107,0.06); }
+.job-row:focus-visible { outline: 2px solid var(--coral); outline-offset: -2px; border-radius: var(--radius-card); }
+
+.job-row-left { display: flex; flex-direction: column; gap: 6px; }
+
+.job-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.meta-pill.location { background: rgba(72,219,251,0.12); color: var(--sky); }
+.meta-pill.type     { background: rgba(29,209,161,0.12); color: var(--mint); }
+
+.job-chevron {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease, color 0.2s ease;
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--bg);
+}
+.job-item.open .job-chevron { transform: rotate(180deg); color: var(--coral); background: rgba(255,107,107,0.10); }
+
+/* detail panel — collapsed by default, expanded with JS */
+.job-detail {
+  display: none;
+  padding: 0 28px 32px;
+  border-top: 1px solid var(--border);
+}
+.job-item.open .job-detail { display: block; animation: slideDown 0.25s ease; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.detail-section { margin-bottom: 28px; }
+
+.detail-intro {
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+
+.detail-section h4 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-section ul li {
+  display: flex;
+  gap: 10px;
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.detail-section ul li::before {
+  content: '▸';
+  color: var(--coral);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.benefits-list li::before { color: var(--mint) !important; content: '✓' !important; font-size: 0.85rem !important; }
+
+/* how to apply */
+.apply-box {
+  background: linear-gradient(135deg, rgba(255,107,107,0.07), rgba(72,219,251,0.07));
+  border: 1.5px dashed rgba(255,107,107,0.25);
+  border-radius: 18px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+
+.apply-box h4 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.apply-box p {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.apply-box strong { color: var(--text-primary); }
+
+.apply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--coral), #ff8e53);
+  color: #fff;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(255,107,107,0.35);
+  transition: transform var(--transition), box-shadow var(--transition-fast);
+  margin-top: 16px;
+}
+.apply-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(255,107,107,0.5); }
+.apply-btn:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition);
+  margin-top: 8px;
+}
+.back-btn:hover { color: var(--coral); border-color: var(--coral); transform: translateX(-3px); }
+.back-btn:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--text-primary);
+  color: #fff;
+  padding: 60px 0 36px;
+  position: relative;
+  overflow: hidden;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,107,107,0.08), rgba(72,219,251,0.08));
+  pointer-events: none;
+}
+.footer-inner { position: relative; z-index: 1; }
+
+.footer-divider { height: 1px; background: rgba(255,255,255,0.10); margin-bottom: 24px; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom-logo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--bg-nav); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 16px; gap: 4px; }
+  .nav-links.open { display: flex; }
+  .nav-hamburger { display: flex; }
+
+  .job-row { padding: 18px 20px; }
+  .job-detail { padding: 0 20px 24px; }
+  .apply-box { padding: 20px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .job-meta { flex-direction: column; gap: 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="JoyCraft Games home">JoyCraft 🎮</a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="careers.html" class="active">Careers</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">☀️</button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
+<main>
+<section class="careers-hero" aria-labelledby="careers-heading">
+  <div class="container careers-hero-inner">
+    <div class="page-badge">🚀 We're Hiring</div>
+    <h1 id="careers-heading">Join JoyCraft</h1>
+    <p>We're building the future of mobile games — fast, with craft and AI. Come build with us.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     JOB LISTINGS
+     ============================================================ -->
+<section class="jobs-section">
+  <div class="container">
+    <div class="jobs-count">🎯 5 Open Roles</div>
+
+    <div class="job-list" id="jobList" role="list">
+
+      <!-- ---- Job 1: Unity Developer ---- -->
+      <div class="job-item" role="listitem" id="job-1">
+        <div class="job-row" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-1" onclick="toggleJob('job-1')" onkeydown="handleKey(event,'job-1')">
+          <div class="job-row-left">
+            <span class="job-title">Unity Developer</span>
+            <div class="job-meta">
+              <span class="meta-pill location">📍 Ho Chi Minh City / Remote</span>
+              <span class="meta-pill type">Full-time</span>
+            </div>
+          </div>
+          <span class="job-chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="job-detail" id="detail-1" aria-label="Unity Developer job details">
+          <p class="detail-intro">You'll be in the engine all day — building tight game systems, optimizing for mobile, and shipping fast. We value people who can balance speed with clean architecture.</p>
+
+          <div class="detail-section">
+            <h4>⚙️ Responsibilities</h4>
+            <ul>
+              <li>Develop core gameplay mechanics and game systems in Unity (C#).</li>
+              <li>Profile and optimize performance for iOS and Android across mid-to-low-end devices.</li>
+              <li>Integrate third-party SDKs: analytics, ads, push notifications, IAP.</li>
+              <li>Collaborate closely with designers and artists through rapid iteration loops.</li>
+              <li>Support live-ops updates: A/B tests, feature flags, content deploys.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>✅ Requirements</h4>
+            <ul>
+              <li>3+ years of Unity development; shipped at least one title on a major store.</li>
+              <li>Strong C# skills — clean code, SOLID principles, readable architecture.</li>
+              <li>Experience with mobile performance bottlenecks (draw calls, GC, batching).</li>
+              <li>Comfortable working with version control (Git) in a team workflow.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>⭐ Nice to Have</h4>
+            <ul>
+              <li>Experience with addressables, asset bundles, or modular content pipelines.</li>
+              <li>Familiarity with AI-assisted development tools (Cursor, Copilot, etc.).</li>
+              <li>Background in casual or hypercasual mobile genres.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4 class="benefits-list">🎁 Benefits</h4>
+            <ul class="benefits-list">
+              <li>Competitive salary benchmarked to market + performance bonus.</li>
+              <li>Remote-friendly with async-first culture and flexible hours.</li>
+              <li>Work on titles with real player traction — not greenfield forever.</li>
+              <li>Access to premium AI/dev tools, covered by the studio.</li>
+            </ul>
+          </div>
+
+          <div class="apply-box">
+            <h4>📬 How to Apply</h4>
+            <p>Sound like you? Send your CV and portfolio to <strong>hiring@joycraftgames.net</strong> with the role in the subject line.</p>
+            <a href="mailto:hiring@joycraftgames.net?subject=Application: Unity Developer" class="apply-btn" aria-label="Email your CV for Unity Developer role">✉️ Email your CV</a>
+          </div>
+
+          <button class="back-btn" onclick="toggleJob('job-1')" aria-label="Back to all roles">← Back to all roles</button>
+        </div>
+      </div>
+
+      <!-- ---- Job 2: Game Designer ---- -->
+      <div class="job-item" role="listitem" id="job-2">
+        <div class="job-row" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-2" onclick="toggleJob('job-2')" onkeydown="handleKey(event,'job-2')">
+          <div class="job-row-left">
+            <span class="job-title">Game Designer</span>
+            <div class="job-meta">
+              <span class="meta-pill location">📍 Ho Chi Minh City</span>
+              <span class="meta-pill type">Full-time</span>
+            </div>
+          </div>
+          <span class="job-chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="job-detail" id="detail-2" aria-label="Game Designer job details">
+          <p class="detail-intro">Own the feel of the game from first mechanic to launch meta. We need someone who thinks in systems, sweats the numbers, and has taste — because data and craft live side by side here.</p>
+
+          <div class="detail-section">
+            <h4>⚙️ Responsibilities</h4>
+            <ul>
+              <li>Design and iterate on core gameplay loops, progression systems, and game economy.</li>
+              <li>Write clear GDDs and feature specs that developers and artists can build from.</li>
+              <li>Collaborate with the UA team to align design decisions with player retention and monetization metrics.</li>
+              <li>Run playtests, analyze session data, and drive data-informed balance changes.</li>
+              <li>Prototype new game concepts quickly in collaboration with engineering.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>✅ Requirements</h4>
+            <ul>
+              <li>2+ years in mobile game design with at least one shipped title.</li>
+              <li>Strong grasp of core loop design, meta-game, and F2P economy fundamentals.</li>
+              <li>Comfortable reading and interpreting analytics dashboards (retention, ARPU, D1/D7/D30).</li>
+              <li>Clear communicator — can translate ideas into actionable specs.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>⭐ Nice to Have</h4>
+            <ul>
+              <li>Experience designing casual or music/rhythm genre games.</li>
+              <li>Ability to prototype designs in Unity (no code required, prefab assembly level).</li>
+              <li>Understanding of ASO and how game design choices affect store positioning.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4 class="benefits-list">🎁 Benefits</h4>
+            <ul class="benefits-list">
+              <li>Direct influence on titles from day one — no committee layers.</li>
+              <li>Competitive salary + bonus tied to game performance milestones.</li>
+              <li>Work alongside founders who ship, not just manage.</li>
+              <li>Flexible schedule; results over hours.</li>
+            </ul>
+          </div>
+
+          <div class="apply-box">
+            <h4>📬 How to Apply</h4>
+            <p>Sound like you? Send your CV and portfolio to <strong>hiring@joycraftgames.net</strong> with the role in the subject line.</p>
+            <a href="mailto:hiring@joycraftgames.net?subject=Application: Game Designer" class="apply-btn" aria-label="Email your CV for Game Designer role">✉️ Email your CV</a>
+          </div>
+
+          <button class="back-btn" onclick="toggleJob('job-2')" aria-label="Back to all roles">← Back to all roles</button>
+        </div>
+      </div>
+
+      <!-- ---- Job 3: 2D Game Artist ---- -->
+      <div class="job-item" role="listitem" id="job-3">
+        <div class="job-row" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-3" onclick="toggleJob('job-3')" onkeydown="handleKey(event,'job-3')">
+          <div class="job-row-left">
+            <span class="job-title">2D Game Artist</span>
+            <div class="job-meta">
+              <span class="meta-pill location">📍 Ho Chi Minh City / Remote</span>
+              <span class="meta-pill type">Full-time</span>
+            </div>
+          </div>
+          <span class="job-chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="job-detail" id="detail-3" aria-label="2D Game Artist job details">
+          <p class="detail-intro">Create the visuals that make players stop scrolling. We care deeply about art quality — our co-founder runs a professional animation studio — so you'll have both high standards and great collaborators.</p>
+
+          <div class="detail-section">
+            <h4>⚙️ Responsibilities</h4>
+            <ul>
+              <li>Create 2D game assets: characters, environments, UI elements, icons, and promotional art.</li>
+              <li>Design and maintain a consistent art style guide across a title.</li>
+              <li>Animate characters and UI elements (spine, frame-by-frame, or tween-based).</li>
+              <li>Collaborate with Unity developers to ensure assets are optimized and properly integrated.</li>
+              <li>Contribute to store creatives: app icons, screenshots, feature graphics.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>✅ Requirements</h4>
+            <ul>
+              <li>Strong 2D illustration portfolio — characters, environments, UI, or all three.</li>
+              <li>Proficiency in Photoshop, Illustrator, or equivalent; Spine or similar animation tool.</li>
+              <li>Understanding of game art constraints: texture atlases, sprite sheets, draw call awareness.</li>
+              <li>Ability to work within and extend an established art direction.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>⭐ Nice to Have</h4>
+            <ul>
+              <li>Experience in casual mobile game art styles.</li>
+              <li>Motion design or After Effects skills for UI/promotional video.</li>
+              <li>Familiarity with AI image generation tools as a concept/reference aid.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4 class="benefits-list">🎁 Benefits</h4>
+            <ul class="benefits-list">
+              <li>Art direction from a co-founder with deep film/commercial production background.</li>
+              <li>Remote-friendly — work from anywhere with stable internet.</li>
+              <li>Competitive salary + profit-sharing on shipped titles.</li>
+              <li>Creative freedom within clear direction — we don't micromanage craft.</li>
+            </ul>
+          </div>
+
+          <div class="apply-box">
+            <h4>📬 How to Apply</h4>
+            <p>Sound like you? Send your CV and portfolio to <strong>hiring@joycraftgames.net</strong> with the role in the subject line.</p>
+            <a href="mailto:hiring@joycraftgames.net?subject=Application: 2D Game Artist" class="apply-btn" aria-label="Email your CV for 2D Game Artist role">✉️ Email your CV</a>
+          </div>
+
+          <button class="back-btn" onclick="toggleJob('job-3')" aria-label="Back to all roles">← Back to all roles</button>
+        </div>
+      </div>
+
+      <!-- ---- Job 4: 3D Artist / VFX ---- -->
+      <div class="job-item" role="listitem" id="job-4">
+        <div class="job-row" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-4" onclick="toggleJob('job-4')" onkeydown="handleKey(event,'job-4')">
+          <div class="job-row-left">
+            <span class="job-title">3D Artist / VFX</span>
+            <div class="job-meta">
+              <span class="meta-pill location">📍 Ho Chi Minh City</span>
+              <span class="meta-pill type">Full-time</span>
+            </div>
+          </div>
+          <span class="job-chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="job-detail" id="detail-4" aria-label="3D Artist / VFX job details">
+          <p class="detail-intro">We blend 3D and VFX in ways most mobile studios don't bother with. If you come from advertising or film production backgrounds and want to bring that quality bar into games, you'll fit right in.</p>
+
+          <div class="detail-section">
+            <h4>⚙️ Responsibilities</h4>
+            <ul>
+              <li>Model, rig, and animate 3D characters, props, and environments for mobile/PC games.</li>
+              <li>Create real-time VFX using Unity's particle system and Shader Graph/VFX Graph.</li>
+              <li>Build and optimize assets for mobile constraints: poly counts, draw calls, texture budgets.</li>
+              <li>Produce 3D elements for promotional materials, trailers, and store assets.</li>
+              <li>Work with technical artists and devs to integrate assets cleanly into Unity.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>✅ Requirements</h4>
+            <ul>
+              <li>3+ years in 3D art/VFX — game, film, advertising, or a mix.</li>
+              <li>Proficiency in Maya, Blender, or 3ds Max; substance painter for texturing.</li>
+              <li>Experience creating real-time VFX in Unity or Unreal.</li>
+              <li>Portfolio showing both technical quality and artistic sensibility.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>⭐ Nice to Have</h4>
+            <ul>
+              <li>Background in 3D commercials or animated film production.</li>
+              <li>Experience with cinematic rendering for trailers (Octane, Arnold, or similar).</li>
+              <li>Shader / tech-art skills in Unity (HLSL, Shader Graph).</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4 class="benefits-list">🎁 Benefits</h4>
+            <ul class="benefits-list">
+              <li>Collaborate directly with AniD — a professional visual production partner.</li>
+              <li>Work on cross-platform projects that ship to millions of players.</li>
+              <li>Competitive salary + hardware/software budget.</li>
+              <li>Tight team, fast feedback, genuine creative ownership.</li>
+            </ul>
+          </div>
+
+          <div class="apply-box">
+            <h4>📬 How to Apply</h4>
+            <p>Sound like you? Send your CV and portfolio to <strong>hiring@joycraftgames.net</strong> with the role in the subject line.</p>
+            <a href="mailto:hiring@joycraftgames.net?subject=Application: 3D Artist / VFX" class="apply-btn" aria-label="Email your CV for 3D Artist / VFX role">✉️ Email your CV</a>
+          </div>
+
+          <button class="back-btn" onclick="toggleJob('job-4')" aria-label="Back to all roles">← Back to all roles</button>
+        </div>
+      </div>
+
+      <!-- ---- Job 5: User Acquisition Specialist ---- -->
+      <div class="job-item" role="listitem" id="job-5">
+        <div class="job-row" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-5" onclick="toggleJob('job-5')" onkeydown="handleKey(event,'job-5')">
+          <div class="job-row-left">
+            <span class="job-title">User Acquisition Specialist</span>
+            <div class="job-meta">
+              <span class="meta-pill location">📍 Ho Chi Minh City</span>
+              <span class="meta-pill type">Full-time</span>
+            </div>
+          </div>
+          <span class="job-chevron" aria-hidden="true">▾</span>
+        </div>
+        <div class="job-detail" id="detail-5" aria-label="User Acquisition Specialist job details">
+          <p class="detail-intro">We've shipped games that hit 50M+ downloads. We need someone to run the growth engine on our next titles — owning media buying, creative testing, and scaling what works.</p>
+
+          <div class="detail-section">
+            <h4>⚙️ Responsibilities</h4>
+            <ul>
+              <li>Plan, execute, and optimize UA campaigns across Meta, Google, AppLovin, Unity Ads, and TikTok.</li>
+              <li>Manage creative testing pipelines: brief creatives, analyze CTR/CVR/ROAS, scale winners.</li>
+              <li>Monitor campaign performance daily — adjust bids, budgets, and audiences.</li>
+              <li>Work with the design team to brief and iterate on ad creatives based on data.</li>
+              <li>Track SKAN/ATT attribution, MMPs (AppsFlyer/Adjust), and cohort metrics.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>✅ Requirements</h4>
+            <ul>
+              <li>2+ years in mobile UA, specifically in gaming (casual or hypercasual preferred).</li>
+              <li>Hands-on experience managing $50K+/month ad spend across at least two platforms.</li>
+              <li>Strong analytical mindset — comfortable with Excel/Sheets and attribution dashboards.</li>
+              <li>Understanding of iOS privacy changes and their impact on campaign measurement.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4>⭐ Nice to Have</h4>
+            <ul>
+              <li>Experience with programmatic or DSP buying.</li>
+              <li>ASO knowledge and understanding of organic/paid interplay.</li>
+              <li>Ability to brief creative concepts for UA — not just analyze after the fact.</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h4 class="benefits-list">🎁 Benefits</h4>
+            <ul class="benefits-list">
+              <li>Own the UA strategy, not just execute orders — you'll have real budget authority.</li>
+              <li>Work on titles with proven retention; you're scaling something that already works.</li>
+              <li>Competitive base + performance bonus tied to ROAS and CPI targets.</li>
+              <li>Access to best-in-class MMP, analytics, and creative tools.</li>
+            </ul>
+          </div>
+
+          <div class="apply-box">
+            <h4>📬 How to Apply</h4>
+            <p>Sound like you? Send your CV and portfolio to <strong>hiring@joycraftgames.net</strong> with the role in the subject line.</p>
+            <a href="mailto:hiring@joycraftgames.net?subject=Application: User Acquisition Specialist" class="apply-btn" aria-label="Email your CV for User Acquisition Specialist role">✉️ Email your CV</a>
+          </div>
+
+          <button class="back-btn" onclick="toggleJob('job-5')" aria-label="Back to all roles">← Back to all roles</button>
+        </div>
+      </div>
+
+    </div><!-- /job-list -->
+  </div>
+</section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-bottom-logo">JoyCraft 🎮</a>
+      <span class="footer-copy">© 2026 JoyCraft Game Studio · Ho Chi Minh City, Vietnam</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JS — theme toggle + hamburger + job expand/collapse
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  // -- theme (same logic as index.html)
+  var KEY = 'joycraft-theme';
+  var html = document.documentElement;
+  var btn  = document.getElementById('themeToggle');
+
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    localStorage.setItem(KEY, theme);
+  }
+
+  var saved = localStorage.getItem(KEY);
+  if (saved === 'dark' || saved === 'light') {
+    applyTheme(saved);
+  } else {
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+
+  btn.addEventListener('click', function () {
+    applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // -- hamburger
+  var hamburger = document.getElementById('hamburger');
+  var navLinks  = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', function () {
+    var open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // -- job expand / collapse (exposed to inline onclick attrs)
+  window.toggleJob = function (id) {
+    var item = document.getElementById(id);
+    if (!item) return;
+
+    var isOpen = item.classList.contains('open');
+    // close all others first
+    document.querySelectorAll('.job-item.open').forEach(function (el) {
+      el.classList.remove('open');
+      el.querySelector('.job-row').setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.job-row').setAttribute('aria-expanded', 'true');
+      // scroll job into view with offset for sticky nav
+      setTimeout(function () {
+        var top = item.getBoundingClientRect().top + window.pageYOffset - 88;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }, 40);
+    }
+  };
+
+  // keyboard: Enter/Space trigger toggle
+  window.handleKey = function (e, id) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.toggleJob(id);
+    }
+  };
+})();
+</script>
+</body>
+</html>
