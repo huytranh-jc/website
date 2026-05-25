@@ -58,7 +58,6 @@
       '<div class="footer-contacts">' +
         '<a href="' + mailto(c.email) + '" class="contact-item" aria-label="Email ' + esc(c.email) + '"><span>✉️</span> ' + esc(c.email) + '</a>' +
         '<a href="' + esc(c.siteUrl) + '" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="Visit ' + esc(c.site) + ' (opens in new tab)"><span>🌐</span> ' + esc(c.site) + '</a>' +
-        '<a href="' + esc(c.phoneHref) + '" class="contact-item" aria-label="Call ' + esc(c.phone) + '"><span>📞</span> ' + esc(c.phone) + '</a>' +
       '</div>';
 
     return '' +

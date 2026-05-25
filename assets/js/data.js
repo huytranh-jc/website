@@ -20,9 +20,7 @@ window.JOYCRAFT = {
     hiringEmail: 'hiring@joycraftgames.net',
     site:        'joycraftgames.net',
     siteUrl:     'https://joycraftgames.net/',
-    phone:       '+84 961 506 036',
-    phoneHref:   'tel:+84961506036',
-    location:    'Ho Chi Minh City, Vietnam'
+    location:    'Hanoi, Vietnam'
   },
 
   /* ===========================================================
@@ -116,7 +114,7 @@ window.JOYCRAFT = {
     {
       id: 'unity-developer',
       title: 'Unity Developer',
-      location: 'Ho Chi Minh City / Remote',
+      location: 'Hanoi / Remote',
       type: 'Full-time',
       intro: "You'll be in the engine all day — building tight game systems, optimizing for mobile, and shipping fast. We value people who can balance speed with clean architecture.",
       responsibilities: [
@@ -147,7 +145,7 @@ window.JOYCRAFT = {
     {
       id: 'game-designer',
       title: 'Game Designer',
-      location: 'Ho Chi Minh City',
+      location: 'Hanoi',
       type: 'Full-time',
       intro: 'Own the feel of the game from first mechanic to launch meta. We need someone who thinks in systems, sweats the numbers, and has taste — because data and craft live side by side here.',
       responsibilities: [
@@ -178,7 +176,7 @@ window.JOYCRAFT = {
     {
       id: '2d-game-artist',
       title: '2D Game Artist',
-      location: 'Ho Chi Minh City / Remote',
+      location: 'Hanoi / Remote',
       type: 'Full-time',
       intro: "Create the visuals that make players stop scrolling. We care deeply about art quality — so you'll have both high standards and great collaborators.",
       responsibilities: [
@@ -209,7 +207,7 @@ window.JOYCRAFT = {
     {
       id: '3d-artist-vfx',
       title: '3D Artist / VFX',
-      location: 'Ho Chi Minh City',
+      location: 'Hanoi',
       type: 'Full-time',
       intro: "We blend 3D and VFX in ways most mobile studios don't bother with. If you come from advertising or film production and want to bring that quality bar into games, you'll fit right in.",
       responsibilities: [
@@ -240,7 +238,7 @@ window.JOYCRAFT = {
     {
       id: 'user-acquisition-specialist',
       title: 'User Acquisition Specialist',
-      location: 'Ho Chi Minh City',
+      location: 'Hanoi',
       type: 'Full-time',
       intro: "We've shipped games that hit 50M+ downloads. We need someone to run the growth engine on our next titles — owning media buying, creative testing, and scaling what works.",
       responsibilities: [
