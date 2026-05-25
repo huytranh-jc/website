@@ -1,7 +1,7 @@
 /* ============================================================
    home.css — home page only (loaded by index.html).
    Sections: section headings · hero · about (disciplines /
-             founders / partners) · games · responsive
+             founders) · games · responsive
    Shared tokens/nav/buttons/footer come from main.css.
    ============================================================ */
 
@@ -232,6 +232,7 @@ section { padding: 100px 0; }
 .founder-avatar.ht { background: linear-gradient(135deg, var(--coral), var(--yellow)); }
 .founder-avatar.tn { background: linear-gradient(135deg, var(--sky), var(--mint)); }
 .founder-avatar.nt { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+img.founder-avatar { object-fit: cover; }
 
 .founder-info h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
 .founder-info .founder-role {
@@ -245,60 +246,6 @@ section { padding: 100px 0; }
   margin-bottom: 10px;
 }
 .founder-info p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-
-/* ============================================================
-   ABOUT — partners
-   ============================================================ */
-.partners-heading {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 36px;
-}
-
-.partners-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.partner-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-card);
-  padding: 28px;
-  border: 1.5px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: transform var(--transition), box-shadow var(--transition-fast);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.partner-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-
-.partner-logo-placeholder {
-  width: 48px; height: 48px;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem;
-}
-.partner-logo-placeholder.anid { background: linear-gradient(135deg, var(--yellow), var(--mint)); }
-.partner-logo-placeholder.umer { background: linear-gradient(135deg, var(--sky), var(--pink)); }
-
-.partner-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
-.partner-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; flex: 1; }
-
-.partner-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Fredoka', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--sky);
-  transition: color var(--transition-fast);
-}
-.partner-link:hover { color: var(--coral); }
-.partner-link::after { content: '↗'; }
 
 /* ============================================================
    GAMES / PORTFOLIO

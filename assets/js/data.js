@@ -46,7 +46,7 @@ window.JOYCRAFT = {
   },
 
   /* ===========================================================
-     HOME — about (disciplines + founders + partners)
+     HOME — about (disciplines + founders)
      =========================================================== */
   about: {
     tag: 'About Us',
@@ -66,25 +66,12 @@ window.JOYCRAFT = {
     ],
 
     founders: [
-      { initials: 'HT', avatar: 'ht', name: 'Huy Tran', role: 'Founder',
+      { initials: 'TN', avatar: 'tn', photo: 'images/nguyen%20tu.png', name: 'Tu Nguyen', role: 'CEO · Co-Founder',
+        bio: 'Creative director with a strong production background in 3D commercials and animated films.' },
+      { initials: 'HT', avatar: 'ht', photo: 'images/huy%20profile.jpg', name: 'Huy Tran', role: 'CTO · Co-Founder',
         bio: 'Shipped multiple hit mobile titles with 50M+ combined downloads. Owns the full technical stack — scalable architecture, SDK integration, live-ops, performance optimization across platforms.' },
-      { initials: 'TN', avatar: 'tn', name: 'Tu Nguyen', role: 'Co-Founder · Art',
-        bio: 'Creative director with a strong production background in 3D commercials and animated films. Runs AniD, an independent visual production studio.' },
-      { initials: 'NT', avatar: 'nt', name: 'Nhat Tran', role: 'Co-Founder · Game Design',
-        bio: 'Game designer shipped on mobile and PC. Specializes in gameplay systems, level progression, player-centric design. Runs Umer Gameworks (Ursid on Steam).' }
-    ],
-
-    partners: [
-      { icon: '🎬', cls: 'anid', name: 'AniD',
-        desc: 'Creative studio for art, branding, and visual production.',
-        linkLabel: 'View on Behance',
-        linkAria: 'View AniD on Behance (opens in new tab)',
-        href: 'https://www.behance.net/gallery/208437909/AniD-Credentials-2024-(SHORTEN)' },
-      { icon: '🐻', cls: 'umer', name: 'Umer Gameworks',
-        desc: 'Indie studio, published Ursid on Steam + mobile titles.',
-        linkLabel: 'View on Steam',
-        linkAria: 'View Ursid on Steam (opens in new tab)',
-        href: 'https://store.steampowered.com/app/2925290/Ursid/' }
+      { initials: 'NT', avatar: 'nt', photo: 'images/nhat%20profile.jpg', name: 'Nhat Tran', role: 'Game Director · Co-Founder',
+        bio: 'Game designer shipped on mobile and PC. Specializes in gameplay systems, level progression, player-centric design.' }
     ]
   },
 
@@ -98,26 +85,6 @@ window.JOYCRAFT = {
     title: 'Our Games 🕹️',
     intro: 'From chart-topping music casuals to indie narrative adventures — built with craft, shipped with speed.',
     items: [
-      { name: 'Duet Cats', platform: 'Mobile', emoji: '🐱🎵',
-        gradient: 'linear-gradient(135deg,#ff6b6b,#feca57)',
-        desc: 'Hit music casual game. 50M+ combined downloads (Duet series).',
-        links: [
-          { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.amanotes.gs.g06' },
-          { label: 'App Store',   icon: '',  href: 'https://apps.apple.com/ee/app/duet-cats-cute-cat-games/id1658687701' }
-        ] },
-      { name: 'Duet Tiles', platform: 'Mobile', emoji: '🎶🕺',
-        gradient: 'linear-gradient(135deg,#feca57,#1dd1a1)',
-        desc: 'Rhythm-driven music & dance title. Huy led the dev team — overseeing analytics, A/B testing, IAP, and ad-mediation integration.',
-        links: [
-          { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.amanotes.duettiles' },
-          { label: 'App Store',   icon: '',  href: 'https://apps.apple.com/zm/app/duet-tiles-music-and-dance/id6450888216' }
-        ] },
-      { name: 'Hide From Daddy', platform: 'Mobile', emoji: '🏃🫣',
-        gradient: 'linear-gradient(135deg,#48dbfb,#ff9ff3)',
-        desc: 'Stealth-escape adventure. Huy served as lead developer — architecting core systems and coordinating cross-discipline delivery on schedule.',
-        links: [
-          { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.chihuahua.babyescape' }
-        ] },
       { name: 'Ring Slide: Colorful Yarn', platform: 'Mobile',
         gradient: 'linear-gradient(135deg,#ff9ff3,#ff6b6b)',
         img: 'images/Icon_4_round_512.png',
@@ -125,12 +92,10 @@ window.JOYCRAFT = {
         links: [
           { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.ringslide.colorfulyarn' }
         ] },
-      { name: 'Ursid', platform: 'PC · Steam', emoji: '🐻✨',
-        gradient: 'linear-gradient(135deg,#1dd1a1,#48dbfb)',
-        desc: 'Indie narrative adventure designed by Nhat, published by Umer Gameworks.',
-        links: [
-          { label: 'Steam', icon: '🎮', steam: true, href: 'https://store.steampowered.com/app/2925290/Ursid/' }
-        ] }
+      { name: 'Untitled Project', platform: 'In Development', emoji: '🚧',
+        gradient: 'linear-gradient(135deg,#48dbfb,#1dd1a1)',
+        desc: 'Our second title — currently in development under the JoyCraft banner. Stay tuned.',
+        links: [] }
     ]
   },
 
@@ -215,7 +180,7 @@ window.JOYCRAFT = {
       title: '2D Game Artist',
       location: 'Ho Chi Minh City / Remote',
       type: 'Full-time',
-      intro: "Create the visuals that make players stop scrolling. We care deeply about art quality — our co-founder runs a professional animation studio — so you'll have both high standards and great collaborators.",
+      intro: "Create the visuals that make players stop scrolling. We care deeply about art quality — so you'll have both high standards and great collaborators.",
       responsibilities: [
         'Create 2D game assets: characters, environments, UI elements, icons, and promo art.',
         'Design and maintain a consistent art style guide across a title.',
@@ -266,7 +231,7 @@ window.JOYCRAFT = {
         'Shader / tech-art skills in Unity (HLSL, Shader Graph).'
       ],
       benefits: [
-        'Collaborate directly with AniD — a professional visual production partner.',
+        'Work closely with senior art direction on cross-discipline projects.',
         'Work on cross-platform projects that ship to millions of players.',
         'Competitive salary + hardware/software budget.',
         'Tight team, fast feedback, genuine creative ownership.'

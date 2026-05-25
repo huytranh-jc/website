@@ -30,27 +30,21 @@
     '</div></div></section>';
   }
 
-  /* -- about: disciplines + founders + partners -- */
+  /* -- about: disciplines + founders -- */
   function discCard(d) {
     return '<article class="disc-card"><div class="disc-icon" aria-hidden="true">' + esc(d.icon) +
            '</div><h3>' + esc(d.title) + '</h3><p>' + esc(d.desc) + '</p></article>';
   }
 
   function founderCard(f) {
-    return '<article class="founder-card">' +
-      '<div class="founder-avatar ' + esc(f.avatar) + '" aria-label="Avatar for ' + esc(f.name) + '">' + esc(f.initials) + '</div>' +
+    var avatar = f.photo
+      ? '<img class="founder-avatar ' + esc(f.avatar) + '" src="' + esc(f.photo) + '" alt="' + esc(f.name) + '" loading="lazy">'
+      : '<div class="founder-avatar ' + esc(f.avatar) + '" aria-label="Avatar for ' + esc(f.name) + '">' + esc(f.initials) + '</div>';
+    return '<article class="founder-card">' + avatar +
       '<div class="founder-info"><h3>' + esc(f.name) + '</h3>' +
         '<span class="founder-role">' + esc(f.role) + '</span>' +
         '<p>' + esc(f.bio) + '</p>' +
       '</div></article>';
-  }
-
-  function partnerCard(p) {
-    return '<article class="partner-card">' +
-      '<div class="partner-logo-placeholder ' + esc(p.cls) + '" aria-hidden="true">' + esc(p.icon) + '</div>' +
-      '<h3>' + esc(p.name) + '</h3><p>' + esc(p.desc) + '</p>' +
-      '<a href="' + esc(p.href) + '" class="partner-link" target="_blank" rel="noopener noreferrer" aria-label="' + esc(p.linkAria) + '">' + esc(p.linkLabel) + '</a>' +
-    '</article>';
   }
 
   function aboutSection() {
@@ -62,8 +56,6 @@
       '<div class="disciplines-grid">' + a.disciplines.map(discCard).join('') + '</div>' +
       '<h2 class="founders-heading">👾 The Founders</h2>' +
       '<div class="founders-grid">' + a.founders.map(founderCard).join('') + '</div>' +
-      '<h2 class="partners-heading">🤝 Our Partners</h2>' +
-      '<div class="partners-grid">' + a.partners.map(partnerCard).join('') + '</div>' +
     '</div></section>';
   }
 
