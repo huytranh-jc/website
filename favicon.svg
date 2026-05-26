@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff6b6b"/>
+      <stop offset="1" stop-color="#feca57"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  <!-- joystick base -->
+  <ellipse cx="16" cy="24" rx="8" ry="2.8" fill="#1a1a2e" opacity="0.18"/>
+  <ellipse cx="16" cy="23.2" rx="7.5" ry="2.6" fill="#fff9f0"/>
+  <!-- shaft -->
+  <rect x="13.6" y="12" width="4.8" height="11" rx="2.4" fill="#fff9f0"/>
+  <!-- ball top -->
+  <circle cx="16" cy="10.5" r="5" fill="#48dbfb"/>
+  <circle cx="14.3" cy="8.8" r="1.6" fill="#fff" opacity="0.7"/>
+</svg>

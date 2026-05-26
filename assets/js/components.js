@@ -57,7 +57,6 @@
       '<p class="footer-cta-sub">Open to publishing partnerships, work-for-hire, and co-development.</p>' +
       '<div class="footer-contacts">' +
         '<a href="' + mailto(c.email) + '" class="contact-item" aria-label="Email ' + esc(c.email) + '"><span>✉️</span> ' + esc(c.email) + '</a>' +
-        '<a href="' + esc(c.siteUrl) + '" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="Visit ' + esc(c.site) + ' (opens in new tab)"><span>🌐</span> ' + esc(c.site) + '</a>' +
       '</div>';
 
     return '' +
