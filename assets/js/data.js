@@ -29,7 +29,7 @@ window.JOYCRAFT = {
   hero: {
     badge: 'GAME STUDIO',
     title: 'JoyCraft',
-    tagline: 'A Vietnam-based, AI-augmented game studio building mobile & PC titles. ' +
+    tagline: 'A Vietnam-based, AI-augmented game studio building mobile titles. ' +
              'We move fast — from rapid prototyping to polished launch — by combining ' +
              'deep craft with modern AI-driven workflows.',
     stats: [
@@ -76,7 +76,6 @@ window.JOYCRAFT = {
   /* ===========================================================
      HOME — games / portfolio
      `gradient` paints the banner; `emoji` shows when no `img`.
-     Set `steam:true` on a link for the dark Steam hover style.
      =========================================================== */
   games: {
     tag: 'Portfolio',

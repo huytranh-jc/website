@@ -61,7 +61,7 @@
 
   /* -- games / portfolio -- */
   function storeLink(g, l) {
-    return '<a href="' + esc(l.href) + '" class="store-btn' + (l.steam ? ' steam' : '') +
+    return '<a href="' + esc(l.href) + '" class="store-btn' +
       '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(g.name) + ' on ' + esc(l.label) + '">' +
       esc(l.icon) + ' ' + esc(l.label) + '</a>';
   }

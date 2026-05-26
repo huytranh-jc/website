@@ -316,7 +316,6 @@ img.founder-avatar { object-fit: cover; }
   transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition);
 }
 .store-btn:hover { background: var(--coral); color: #fff; border-color: var(--coral); transform: scale(1.05); }
-.store-btn.steam:hover { background: #1b2838; border-color: #1b2838; }
 .store-btn:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
 
 /* ============================================================
