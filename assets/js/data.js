@@ -103,7 +103,9 @@ window.JOYCRAFT = {
   careers: {
     badge: "🚀 We're Hiring",
     title: 'Join JoyCraft',
-    intro: "We're building the future of mobile games — fast, with craft and AI. Come build with us."
+    intro: "We're building the future of mobile games — fast, with craft and AI. Come build with us.",
+    location: 'Hà Nội',                                 // header pill — shared by all roles
+    address: 'Vũ Thạnh, Ô Chợ Dừa, Đống Đa, Hà Nội'     // Work Details location — shared by all roles
   },
 
   /* ===========================================================
@@ -113,158 +115,65 @@ window.JOYCRAFT = {
   jobs: [
     {
       id: 'unity-developer',
-      title: 'Unity Developer',
-      location: 'Hanoi / Remote',
+      title: 'Unity Developer (Fresher/Junior)',
       type: 'Full-time',
-      intro: "You'll be in the engine all day — building tight game systems, optimizing for mobile, and shipping fast. We value people who can balance speed with clean architecture.",
+      intro: "JoyCraft Games is a startup building puzzle games with a tight team of 5–10. You'll build mobile game systems in Unity for Android and iOS, ship to real players, and grow alongside the team.",
       responsibilities: [
-        'Develop core gameplay mechanics and game systems in Unity (C#).',
-        'Profile and optimize performance for iOS and Android across mid-to-low-end devices.',
-        'Integrate third-party SDKs: analytics, ads, push notifications, IAP.',
-        'Collaborate closely with designers and artists through rapid iteration loops.',
-        'Support live-ops updates: A/B tests, feature flags, content deploys.'
+        'Build mobile game systems in Unity (C#) for Android and iOS — focused on puzzle games.',
+        'Integrate third-party SDKs and advertising networks.',
+        'Contribute ideas to improve the product.',
+        'Collaborate across departments — design, art, and marketing.'
       ],
       requirements: [
-        '3+ years of Unity development; shipped at least one title on a major store.',
-        'Strong C# skills — clean code, SOLID principles, readable architecture.',
-        'Experience with mobile performance bottlenecks (draw calls, GC, batching).',
-        'Comfortable working with version control (Git) in a team workflow.'
+        '6+ months of Unity game development — freshers welcome with a strong portfolio.',
+        'Solid C# and OOP fundamentals.',
+        'Strong problem-solving skills and clean, maintainable code.',
+        'Able to work independently and as part of a team.',
+        'A portfolio of projects you have built.'
       ],
       niceToHave: [
-        'Experience with addressables, asset bundles, or modular content pipelines.',
-        'Familiarity with AI-assisted development tools (Cursor, Copilot, etc.).',
-        'Background in casual or hypercasual mobile genres.'
+        'Experience optimizing app performance.',
+        'Hands-on experience integrating SDKs.',
+        'Built complete 3D game systems across multiple titles.'
       ],
       benefits: [
-        'Competitive salary benchmarked to market + performance bonus.',
-        'Remote-friendly with async-first culture and flexible hours.',
-        'Work on titles with real player traction — not greenfield forever.',
-        'Access to premium AI/dev tools, covered by the studio.'
-      ]
+        'Salary up to 45M VND, based on ability.',
+        'Guaranteed 15+ months of income per year.',
+        '100% salary during probation.',
+        'Sundays off.',
+        'Transportation and lunch support.',
+        'Dynamic environment with clear advancement opportunities.'
+      ],
+      schedule: 'Monday–Saturday, 8:15–18:00 (flexible)'
     },
     {
-      id: 'game-designer',
-      title: 'Game Designer',
-      location: 'Hanoi',
-      type: 'Full-time',
-      intro: 'Own the feel of the game from first mechanic to launch meta. We need someone who thinks in systems, sweats the numbers, and has taste — because data and craft live side by side here.',
+      id: 'unity-developer-intern',
+      title: 'Unity Developer Intern',
+      type: 'Internship',
+      intro: "JoyCraft Games is a Hanoi-based startup building puzzle games with a small team of 5–10. As an intern, you'll turn game designs into real features and learn production game development with a mentor by your side.",
       responsibilities: [
-        'Design and iterate on core gameplay loops, progression systems, and game economy.',
-        'Write clear GDDs and feature specs that developers and artists can build from.',
-        'Collaborate with the UA team to align design with player retention and monetization.',
-        'Run playtests, analyze session data, and drive data-informed balance changes.',
-        'Prototype new game concepts quickly in collaboration with engineering.'
+        'Turn game designs into functional, working features.',
+        'Take part in level design and playtesting.',
+        'Learn game development practices under mentor guidance.'
       ],
       requirements: [
-        '2+ years in mobile game design with at least one shipped title.',
-        'Strong grasp of core loop design, meta-game, and F2P economy fundamentals.',
-        'Comfortable interpreting analytics dashboards (retention, ARPU, D1/D7/D30).',
-        'Clear communicator — can translate ideas into actionable specs.'
+        'Final-year student or recent graduate in IT or a related field.',
+        'C# programming experience.',
+        'Strong self-learning ability.'
       ],
       niceToHave: [
-        'Experience designing casual or music/rhythm genre games.',
-        'Ability to prototype designs in Unity (prefab assembly level, no code required).',
-        'Understanding of ASO and how design choices affect store positioning.'
+        'Students from top technology universities are a plus.',
+        'Scholarship recipients or award winners in major competitions are especially welcome.',
+        'Prior hands-on experience with Unity.'
       ],
       benefits: [
-        'Direct influence on titles from day one — no committee layers.',
-        'Competitive salary + bonus tied to game performance milestones.',
-        'Work alongside founders who ship, not just manage.',
-        'Flexible schedule; results over hours.'
-      ]
-    },
-    {
-      id: '2d-game-artist',
-      title: '2D Game Artist',
-      location: 'Hanoi / Remote',
-      type: 'Full-time',
-      intro: "Create the visuals that make players stop scrolling. We care deeply about art quality — so you'll have both high standards and great collaborators.",
-      responsibilities: [
-        'Create 2D game assets: characters, environments, UI elements, icons, and promo art.',
-        'Design and maintain a consistent art style guide across a title.',
-        'Animate characters and UI elements (Spine, frame-by-frame, or tween-based).',
-        'Work with Unity developers to ensure assets are optimized and properly integrated.',
-        'Contribute to store creatives: app icons, screenshots, feature graphics.'
+        'Opportunity to convert to a full-time role after the internship.',
+        'Financial support (allowance).',
+        'Hands-on experience shipping real 3D games to global markets.',
+        'Career development guidance and mentorship.'
       ],
-      requirements: [
-        'Strong 2D illustration portfolio — characters, environments, UI, or all three.',
-        'Proficiency in Photoshop, Illustrator, or equivalent; Spine or similar.',
-        'Understanding of game art constraints: texture atlases, sprite sheets, draw calls.',
-        'Ability to work within and extend an established art direction.'
-      ],
-      niceToHave: [
-        'Experience in casual mobile game art styles.',
-        'Motion design or After Effects skills for UI/promo video.',
-        'Familiarity with AI image generation as a concept/reference aid.'
-      ],
-      benefits: [
-        'Art direction from a co-founder with deep film/commercial production background.',
-        'Remote-friendly — work from anywhere with stable internet.',
-        'Competitive salary + profit-sharing on shipped titles.',
-        "Creative freedom within clear direction — we don't micromanage craft."
-      ]
-    },
-    {
-      id: '3d-artist-vfx',
-      title: '3D Artist / VFX',
-      location: 'Hanoi',
-      type: 'Full-time',
-      intro: "We blend 3D and VFX in ways most mobile studios don't bother with. If you come from advertising or film production and want to bring that quality bar into games, you'll fit right in.",
-      responsibilities: [
-        'Model, rig, and animate 3D characters, props, and environments for mobile/PC games.',
-        "Create real-time VFX using Unity's particle system and Shader Graph / VFX Graph.",
-        'Optimize assets for mobile constraints: poly counts, draw calls, texture budgets.',
-        'Produce 3D elements for promotional materials, trailers, and store assets.',
-        'Work with technical artists and devs to integrate assets cleanly into Unity.'
-      ],
-      requirements: [
-        '3+ years in 3D art/VFX — game, film, advertising, or a mix.',
-        'Proficiency in Maya, Blender, or 3ds Max; Substance Painter for texturing.',
-        'Experience creating real-time VFX in Unity or Unreal.',
-        'Portfolio showing both technical quality and artistic sensibility.'
-      ],
-      niceToHave: [
-        'Background in 3D commercials or animated film production.',
-        'Experience with cinematic rendering for trailers (Octane, Arnold, or similar).',
-        'Shader / tech-art skills in Unity (HLSL, Shader Graph).'
-      ],
-      benefits: [
-        'Work closely with senior art direction on cross-discipline projects.',
-        'Work on cross-platform projects that ship to millions of players.',
-        'Competitive salary + hardware/software budget.',
-        'Tight team, fast feedback, genuine creative ownership.'
-      ]
-    },
-    {
-      id: 'user-acquisition-specialist',
-      title: 'User Acquisition Specialist',
-      location: 'Hanoi',
-      type: 'Full-time',
-      intro: "We've shipped games that hit 50M+ downloads. We need someone to run the growth engine on our next titles — owning media buying, creative testing, and scaling what works.",
-      responsibilities: [
-        'Plan, execute, and optimize UA campaigns across Meta, Google, AppLovin, Unity Ads, and TikTok.',
-        'Manage creative testing pipelines: brief creatives, analyze CTR/CVR/ROAS, scale winners.',
-        'Monitor campaign performance daily — adjust bids, budgets, and audiences.',
-        'Work with the design team to brief and iterate on ad creatives based on data.',
-        'Track SKAN/ATT attribution, MMPs (AppsFlyer/Adjust), and cohort metrics.'
-      ],
-      requirements: [
-        '2+ years in mobile UA, specifically in gaming (casual or hypercasual preferred).',
-        'Hands-on experience managing $50K+/month ad spend across at least two platforms.',
-        'Strong analytical mindset — comfortable with Sheets and attribution dashboards.',
-        'Understanding of iOS privacy changes and their impact on measurement.'
-      ],
-      niceToHave: [
-        'Experience with programmatic or DSP buying.',
-        'ASO knowledge and understanding of organic/paid interplay.',
-        'Ability to brief creative concepts for UA — not just analyze after the fact.'
-      ],
-      benefits: [
-        "Own the UA strategy, not just execute orders — you'll have real budget authority.",
-        "Work on titles with proven retention; you're scaling something that already works.",
-        'Competitive base + performance bonus tied to ROAS and CPI targets.',
-        'Access to best-in-class MMP, analytics, and creative tools.'
-      ]
+      workMode: 'On-site',
+      schedule: 'Minimum 20 hours/week'
     }
   ]
 };

@@ -23,3 +23,9 @@ chỉ cần phần tổng thể, chưa cần chi tiết.
 
 
 tối ưu 
+xem xong rồi, làm chi tiết hướng B arcade.
+- tối ưu lại code, bóc tách rõ ràng từng phân đoạn, code reuse, bóc tách data, styles etc.
+
+phần careers
+- chỉ có 1 job là Unity Developer Fresher/Junior (Full-time) tại Hà Nội
+- update cấu trúc và các text Job này theo: https://docs.google.com/document/d/1JvT359hnNKgEtiCUeXL5mrqboPNZWybZeJguJyMZImI/edit?tab=t.0

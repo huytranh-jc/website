@@ -23,7 +23,7 @@
         '<div class="job-row-left">' +
           '<span class="job-title">' + esc(job.title) + '</span>' +
           '<div class="job-meta">' +
-            '<span class="meta-pill location">📍 ' + esc(job.location) + '</span>' +
+            '<span class="meta-pill location">📍 ' + esc(D.careers.location) + '</span>' +
             '<span class="meta-pill type">' + esc(job.type) + '</span>' +
           '</div>' +
         '</div>' +
@@ -35,6 +35,13 @@
         '<div class="detail-section"><h4>✅ Requirements</h4>' + bullets(job.requirements) + '</div>' +
         '<div class="detail-section"><h4>⭐ Nice to Have</h4>' + bullets(job.niceToHave) + '</div>' +
         '<div class="detail-section"><h4 class="benefits-list">🎁 Benefits</h4>' + bullets(job.benefits, 'benefits-list') + '</div>' +
+        '<div class="detail-section"><h4>🗓️ Work Details</h4>' +
+          '<ul class="work-details">' +
+            '<li><strong>Location:</strong> ' + esc(D.careers.address) + '</li>' +
+            (job.workMode ? '<li><strong>Work mode:</strong> ' + esc(job.workMode) + '</li>' : '') +
+            (job.schedule ? '<li><strong>Schedule:</strong> ' + esc(job.schedule) + '</li>' : '') +
+          '</ul>' +
+        '</div>' +
         '<div class="apply-box">' +
           '<h4>📬 How to Apply</h4>' +
           '<p>Sound like you? Send your CV and portfolio to <strong>' + esc(D.contact.hiringEmail) + '</strong> with the role in the subject line.</p>' +

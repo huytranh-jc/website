@@ -25,7 +25,16 @@
   --border:         rgba(26,26,46,0.08);
   --shadow:         0 4px 24px rgba(26,26,46,0.10);
   --shadow-hover:   0 12px 40px rgba(26,26,46,0.16);
-  --footer-bg:      #1a1a2e;   /* footer stays dark in BOTH themes for white-on-dark contrast */
+
+  /* footer surfaces — flip with theme (light values here) */
+  --footer-bg:           #fdf4e8;             /* warm light band, a touch deeper than --bg */
+  --footer-text:         var(--text-primary);
+  --footer-muted:        var(--text-secondary);
+  --footer-faint:        var(--text-muted);
+  --footer-chip-bg:      rgba(26,26,46,0.04);
+  --footer-chip-border:  rgba(26,26,46,0.10);
+  --footer-chip-hover:   rgba(26,26,46,0.08);
+  --footer-divider:      rgba(26,26,46,0.10);
 
   /* gradients */
   --grad-hero:   linear-gradient(135deg, #fff0f3 0%, #fff8e7 40%, #e8f8ff 100%);
@@ -49,7 +58,15 @@
   --shadow:         0 4px 24px rgba(0,0,0,0.5);
   --shadow-hover:   0 12px 40px rgba(0,0,0,0.7);
   --grad-hero:      linear-gradient(135deg, #0d0d1a 0%, #12122a 50%, #0a1628 100%);
-  --footer-bg:      #08080f;
+
+  --footer-bg:           #08080f;
+  --footer-text:         #ffffff;
+  --footer-muted:        rgba(255,255,255,0.7);
+  --footer-faint:        rgba(255,255,255,0.45);
+  --footer-chip-bg:      rgba(255,255,255,0.08);
+  --footer-chip-border:  rgba(255,255,255,0.12);
+  --footer-chip-hover:   rgba(255,255,255,0.14);
+  --footer-divider:      rgba(255,255,255,0.10);
 }
 
 /* ============================================================
@@ -227,7 +244,8 @@ nav {
    ============================================================ */
 footer {
   background: var(--footer-bg);
-  color: #fff;
+  color: var(--footer-text);
+  border-top: 1px solid var(--border);
   padding: 80px 0 40px;
   position: relative;
   overflow: hidden;
@@ -252,7 +270,7 @@ footer::before {
   animation: gradShift 5s ease infinite;
   margin-bottom: 12px;
 }
-.footer-cta-sub { font-size: 1.05rem; color: rgba(255,255,255,0.7); margin-bottom: 36px; }
+.footer-cta-sub { font-size: 1.05rem; color: var(--footer-muted); margin-bottom: 36px; }
 
 .footer-contacts { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 56px; }
 
@@ -261,17 +279,17 @@ footer::before {
   align-items: center;
   gap: 10px;
   padding: 12px 22px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--footer-chip-bg);
+  border: 1px solid var(--footer-chip-border);
   border-radius: var(--radius-pill);
   font-size: 0.95rem;
-  color: rgba(255,255,255,0.9);
+  color: var(--footer-text);
   transition: background var(--transition-fast), transform var(--transition);
 }
-.contact-item:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+.contact-item:hover { background: var(--footer-chip-hover); transform: translateY(-2px); }
 .contact-item span { font-size: 1.1rem; }
 
-.footer-divider { height: 1px; background: rgba(255,255,255,0.10); margin-bottom: 28px; }
+.footer-divider { height: 1px; background: var(--footer-divider); margin-bottom: 28px; }
 
 .footer-bottom {
   display: flex;
@@ -289,7 +307,7 @@ footer::before {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+.footer-copy { font-size: 0.85rem; color: var(--footer-faint); }
 
 /* ============================================================
    SHARED RESPONSIVE (nav + footer)

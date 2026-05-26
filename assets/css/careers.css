@@ -201,6 +201,9 @@
 }
 .benefits-list li::before { color: var(--mint) !important; content: '✓' !important; font-size: 0.85rem !important; }
 
+.work-details li { display: block; }
+.work-details li strong { color: var(--text-primary); font-weight: 600; margin-right: 4px; }
+
 /* ============================================================
    HOW TO APPLY
    ============================================================ */
