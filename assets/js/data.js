@@ -89,6 +89,13 @@ window.JOYCRAFT = {
         links: [
           { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.ringslide.colorfulyarn' }
         ] },
+      { name: 'Airport Jam: Passenger Sort', platform: 'Mobile',
+        gradient: 'linear-gradient(135deg,#48dbfb,#54a0ff)',
+        img: 'images/airport_jam_icon.png',
+        desc: 'Sort puzzle — guide passengers to the right gates. Our second mobile title.',
+        links: [
+          { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.airportjam.sortpuzzle' }
+        ] },
       { name: 'Untitled Project', platform: 'In Development', emoji: '🚧',
         gradient: 'linear-gradient(135deg,#48dbfb,#1dd1a1)',
         desc: 'Our second title — currently in development under the JoyCraft banner. Stay tuned.',
