@@ -25,7 +25,7 @@ Site có **2 loại trang**:
 
 **2. Standalone legal pages** (`privacy-ring-slide.html`, `data-deletion.html`) — self-contained, **inline CSS**, KHÔNG dùng hệ data-driven ở trên. `privacy-ring-slide.html` là privacy policy cho app Ring Slide: Colorful Yarn (generated từ App Privacy Policy Generator). `data-deletion.html` là GDPR-style data deletion request flow.
 
-`app-ads.txt` ở root là Google authorized digital sellers manifest cho mobile ads — generated từ ad network dashboards (AppLovin, Unity, IronSource, Mintegral, Meta, LiftOff). Header `#UpdatedOn<date>` đánh dấu lần update gần nhất. **Không edit manual** — copy từ network khi cần refresh.
+`app-ads.txt` ở root là Google authorized digital sellers manifest cho mobile ads — aggregate từ các ad network (AppLovin, Unity, IronSource, Mintegral, ...), maintain trong Google Sheet *joycraft | app-ads.txt* làm single source of truth. Header `#UpdatedOn<date>` (nằm trong sheet) đánh dấu lần update gần nhất. **Không edit `app-ads.txt` bằng tay** — sửa trong sheet rồi export CSV + regenerate (xem Common Tasks).
 
 ## Deployment
 Push lên branch `main` → GitHub Pages tự deploy ra `joycraftgames.net`. Không có CI, không có staging.
@@ -39,4 +39,9 @@ Push lên branch `main` → GitHub Pages tự deploy ra `joycraftgames.net`. Kh�
 
 ## Common Tasks
 - Test local: mở `index.html` / `careers.html` trực tiếp trong browser (no server needed — classic scripts).
-- Refresh ad networks list: paste content mới vào `app-ads.txt`, update `#UpdatedOn` header.
+- **Refresh `app-ads.txt`:** source of truth là Google Sheet *joycraft | app-ads.txt*, export ra `~/Downloads/joycraft _ app-ads.txt - Sheet1.csv`. CSV bọc mỗi dòng trong `"..."` (Sheets quote cell chứa dấu phẩy) — sai format IAB nếu up nguyên, phải strip quote đầu/cuối mỗi dòng rồi ghi đè `app-ads.txt`. Header `#UpdatedOn<date>` đã nằm sẵn trong sheet, không thêm tay. Giữ no-BOM + CRLF như file gốc. PowerShell:
+  ```powershell
+  $src="$HOME\Downloads\joycraft _ app-ads.txt - Sheet1.csv"; $dst="D:\website\app-ads.txt"
+  $lines=[System.IO.File]::ReadAllLines($src) | ForEach-Object { $_.Trim('"') }
+  [System.IO.File]::WriteAllLines($dst, $lines)
+  ```
