@@ -67,9 +67,7 @@ window.JOYCRAFT = {
       { initials: 'TN', avatar: 'tn', photo: 'images/nguyen%20tu.png', name: 'Tu Nguyen', role: 'CEO · Co-Founder',
         bio: 'Creative director with a strong production background in 3D commercials and animated films.' },
       { initials: 'HT', avatar: 'ht', photo: 'images/huy%20profile.jpg', name: 'Huy Tran', role: 'CTO · Co-Founder',
-        bio: 'Shipped multiple hit mobile titles with 50M+ combined downloads. Owns the full technical stack — scalable architecture, SDK integration, live-ops, performance optimization across platforms.' },
-      { initials: 'NT', avatar: 'nt', photo: 'images/nhat%20profile.jpg', name: 'Nhat Tran', role: 'Game Director · Co-Founder',
-        bio: 'Game designer shipped on mobile and PC. Specializes in gameplay systems, level progression, player-centric design.' }
+        bio: 'Shipped multiple hit mobile titles with 50M+ combined downloads. Owns the full technical stack — scalable architecture, SDK integration, live-ops, performance optimization across platforms.' }
     ]
   },
 
