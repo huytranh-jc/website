@@ -94,6 +94,13 @@ window.JOYCRAFT = {
         links: [
           { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.airportjam.sortpuzzle' }
         ] },
+      { name: 'Sand Scratch', platform: 'Mobile',
+        gradient: 'linear-gradient(135deg,#a29bfe,#6c5ce7)',
+        img: 'images/sand_scratch_icon.png',
+        desc: 'Relaxing sand art puzzle — scratch away to reveal colorful scenes.',
+        links: [
+          { label: 'Google Play', icon: '▶', href: 'https://play.google.com/store/apps/details?id=com.puzzle.sandscratch' }
+        ] },
       { name: 'Untitled Project', platform: 'In Development', emoji: '🚧',
         gradient: 'linear-gradient(135deg,#48dbfb,#1dd1a1)',
         desc: 'Our second title — currently in development under the JoyCraft banner. Stay tuned.',
