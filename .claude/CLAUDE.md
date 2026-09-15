@@ -45,3 +45,4 @@ Push lên branch `main` → GitHub Pages tự deploy ra `joycraftgames.net`. Kh�
   $lines=[System.IO.File]::ReadAllLines($src) | ForEach-Object { $_.Trim('"') }
   [System.IO.File]::WriteAllLines($dst, $lines)
   ```
+  Sau khi ghi, chạy `powershell -NoProfile -File scripts/verify-app-ads.ps1 -CrossCheck` — phải PASS mới commit.
